@@ -5,17 +5,31 @@ import java.lang.String;
 public class Player
 {
     private final String    name;
-    private final char      input;
-    private final int       id;
+    private final char      logo;
 
-    public Player(String myName, char myInput, int myId)
+    private int input;
+
+    public Player(String myName, char myLogo)
     {
         this.name = myName;
-        this.input = myInput;
-        this.id = myId;
+        this.logo = myLogo;
+        this.input = 10;
     }
     public String getName()
     {
         return this.name;
+    }
+    public char getLogo()
+    {
+        return this.logo;
+    }
+    public int getInput()
+    {
+        return this.input;
+    }
+
+    public void setInput(int myInput)
+    {
+        this.input = myInput;
     }
 }

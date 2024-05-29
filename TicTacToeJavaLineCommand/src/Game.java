@@ -1,30 +1,43 @@
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Game
 {
-    private final ArrayTicTacToe arrayTicTacToe = new ArrayTicTacToe();
-    private Random random = new Random();
+    public final ArrayTicTacToe arrayTicTacToe = new ArrayTicTacToe();
     private int gameIsOver;
-    private Player player1;
-    private Player player2;
     private int startPlayerToPlay;
+
+    public Player player1;
+    public Player player2;
+
+
+
 
     private void gameLoop()
     {
+        Random random = new Random();
         gameIsOver = 0;
         startPlayerToPlay = random.nextInt(2) + 1;
+        GameLogic gameLogic = new GameLogic();
 
         if (startPlayerToPlay == 1)
-            System.out.println("The player 1 " + player1.getName() + " starts to play !");
+            System.out.println("\nThe player 1 " + player1.getName() + " starts to play !");
         else
-            System.out.println("The player 2 " + player2.getName() + " starts to play !");
-       // while (gameIsOver == 0)
-        //{
-
-      //  }
+            System.out.println("\nThe player 2 " + player2.getName() + " starts to play !");
+        while (gameIsOver == 0)
+        {
+            if (startPlayerToPlay == 1)
+            {
+                gameLogic.gameLogicP1(this);
+            }
+            else
+            {
+                gameLogic.gameLogicP2(this);
+            }
+        }
     }
-    private void initNamePlayers()
+    public void initNamePlayers()
     {
         String namePlayer1;
         String namePlayer2;
@@ -36,8 +49,8 @@ public class Game
         System.out.print("Please type the name of the Player 2 : ");
         namePlayer2 = scanner.next();
 
-        player1 = new Player(namePlayer1, 'X', 1);
-        player2 = new Player(namePlayer2, 'O', 2);
+        player1 = new Player(namePlayer1, 'X');
+        player2 = new Player(namePlayer2, 'O');
     }
     public void runGame()
     {
