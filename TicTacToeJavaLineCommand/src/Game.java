@@ -29,11 +29,17 @@ public class Game
         {
             if (startPlayerToPlay == 1)
             {
-                gameLogic.gameLogicP1(this);
+                if (gameLogic.gameLogicP1(this) == 1)
+                {
+                    gameIsOver = 1;
+                }
             }
             else
             {
-                gameLogic.gameLogicP2(this);
+                if (gameLogic.gameLogicP2(this) == 1)
+                {
+                    gameIsOver = 1;
+                }
             }
         }
     }

@@ -37,6 +37,65 @@ public class ArrayTicTacToe
         return false;
     }
 
+    public boolean checkVerticalArrayPlayer1()
+    {
+        if ((grid[0] == 'X' && grid[3] == 'X' && grid[6] == 'X') || (grid[1] == 'X' && grid[4] == 'X' && grid[7] == 'X') || (grid[2] == 'X' && grid[5] == 'X' && grid[8] == 'X'))
+            return true;
+        return false;
+    }
+    public boolean checkHorizontalArrayPlayer1()
+    {
+        if ((grid[0] == 'X' && grid[1] == 'X' && grid[2] == 'X') || (grid[3] == 'X' && grid[4] == 'X' && grid[5] == 'X') || (grid[6] == 'X' && grid[7] == 'X' && grid[8] == 'X'))
+            return true;
+        return false;
+    }
+    public boolean checkDiagonalArrayPlayer1()
+    {
+        if ((grid[0] == 'X' && grid[4] == 'X' && grid[8] == 'X') || (grid[2] == 'X' && grid[4] == 'X' && grid[6] == 'X'))
+            return true;
+        return false;
+    }
+    public boolean checkVictoryArrayPlayer1(Game game)
+    {
+        if (checkHorizontalArrayPlayer1() ||  checkVerticalArrayPlayer1() || checkDiagonalArrayPlayer1())
+        {
+            System.out.println("\nThe player 1 " + game.player1.getName() + " wins!");
+            return true;
+        }
+
+        return false;
+    }
+
+
+
+    public boolean checkVerticalArrayPlayer2()
+    {
+        if ((grid[0] == 'O' && grid[3] == 'O' && grid[6] == 'O') || (grid[1] == 'O' && grid[4] == 'O' && grid[7] == 'O') || (grid[2] == 'O' && grid[5] == 'O' && grid[8] == 'O'))
+            return true;
+        return false;
+    }
+    public boolean checkHorizontalArrayPlayer2()
+    {
+        if ((grid[0] == 'O' && grid[1] == 'O' && grid[2] == 'O') || (grid[3] == 'O' && grid[4] == 'O' && grid[5] == 'O') || (grid[6] == 'O' && grid[7] == 'O' && grid[8] == 'O'))
+            return true;
+        return false;
+    }
+    public boolean checkDiagonalArrayPlayer2()
+    {
+        if ((grid[0] == 'O' && grid[4] == 'O' && grid[8] == 'O') || (grid[2] == 'O' && grid[4] == 'O' && grid[6] == 'O'))
+            return true;
+        return false;
+    }
+    public boolean checkVictoryArrayPlayer2(Game game)
+    {
+        if (checkHorizontalArrayPlayer2() || checkVerticalArrayPlayer2() || checkDiagonalArrayPlayer2())
+        {
+            System.out.println("\nThe player 2 " + game.player2.getName() + " wins!");
+            return true;
+        }
+        return false;
+    }
+
     public void displayAndInitArrayTicTacToe()
     {
         System.out.println("\n\n");
