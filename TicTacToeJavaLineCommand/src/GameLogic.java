@@ -26,9 +26,8 @@ public class GameLogic
                 System.out.println("You did not type a number.");
                 scanner.next();
             }
-
         }
-    // Update input in arrayTictactoe
+    // Update input in arrayTicTacToe
         while (!game.arrayTicTacToe.updateArray(game.player2))
         {
             inputP2 = 10;
@@ -46,7 +45,6 @@ public class GameLogic
                     scanner.next();
                 }
             }
-
         }
         game.arrayTicTacToe.displayArray();
         nbMovesPlayer2++;
@@ -54,6 +52,12 @@ public class GameLogic
         if (nbMovesPlayer2 >= 3)
             if (game.arrayTicTacToe.checkVictoryArrayPlayer2(game))
                 return (1);
+
+        if (nbMovesPlayer2 == 5 && nbMovesPlayer1 == 4 && !(game.arrayTicTacToe.checkVictoryArrayPlayer2(game)))
+        {
+            System.out.println("Draw !");
+            return (1);
+        }
 
 
     // Input player1
@@ -71,7 +75,6 @@ public class GameLogic
                 scanner.next();
             }
         }
-
         while (!game.arrayTicTacToe.updateArray(game.player1))
         {
             while ((inputP1 <= 0) || (inputP1 > 9))
@@ -91,8 +94,8 @@ public class GameLogic
             }
         }
         game.arrayTicTacToe.displayArray();
-
         nbMovesPlayer1++;
+
         if (nbMovesPlayer1 >= 3)
             if (game.arrayTicTacToe.checkVictoryArrayPlayer1(game))
                 return (1);
@@ -121,7 +124,6 @@ public class GameLogic
                 System.out.println("You did not type a number.");
                 scanner.next();
             }
-
         }
         while (!(game.arrayTicTacToe.updateArray(game.player1)))
         {
@@ -147,6 +149,12 @@ public class GameLogic
         if (nbMovesPlayer1 >= 3)
             if (game.arrayTicTacToe.checkVictoryArrayPlayer1(game))
                 return (1);
+
+        if (nbMovesPlayer1 == 5 && nbMovesPlayer2 == 4 && !(game.arrayTicTacToe.checkVictoryArrayPlayer1(game)))
+        {
+            System.out.println("Draw !");
+            return (1);
+        }
 
         while ((inputP2 <= 0) || (inputP2 > 9))
         {
@@ -179,7 +187,6 @@ public class GameLogic
                     scanner.next();
                 }
             }
-
         }
         game.arrayTicTacToe.displayArray();
         nbMovesPlayer2++;
@@ -187,7 +194,6 @@ public class GameLogic
         if (nbMovesPlayer2 >= 3)
             if (game.arrayTicTacToe.checkVictoryArrayPlayer2(game))
                 return (1);
-
         return (0);
     }
 }

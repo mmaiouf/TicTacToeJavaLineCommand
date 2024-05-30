@@ -7,7 +7,6 @@ public class Game
     public final ArrayTicTacToe arrayTicTacToe = new ArrayTicTacToe();
     private int gameIsOver;
     private int startPlayerToPlay;
-
     public Player player1;
     public Player player2;
 
@@ -25,22 +24,15 @@ public class Game
             System.out.println("\nThe player 1 " + player1.getName() + " starts to play !");
         else
             System.out.println("\nThe player 2 " + player2.getName() + " starts to play !");
+
         while (gameIsOver == 0)
         {
             if (startPlayerToPlay == 1)
-            {
                 if (gameLogic.gameLogicP1(this) == 1)
-                {
                     gameIsOver = 1;
-                }
-            }
             else
-            {
                 if (gameLogic.gameLogicP2(this) == 1)
-                {
                     gameIsOver = 1;
-                }
-            }
         }
     }
     public void initNamePlayers()

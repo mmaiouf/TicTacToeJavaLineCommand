@@ -2,14 +2,13 @@ public class ArrayTicTacToe
 {
     private final char[] grid = new char[9];
 
-    public void initArray()
+    private void initArray()
     {
         for (int i = 0; i < 9; i++)
         {
             grid[i] = (char) (i + 1);
         }
     }
-
     public void displayArray()
     {
         for (int i = 0; i < 9; i++)
@@ -24,7 +23,6 @@ public class ArrayTicTacToe
                 System.out.print(" | ");
         }
     }
-
     public boolean updateArray(Player myPlayer)
     {
         if (grid[myPlayer.getInput() - 1] != 'X' && grid[myPlayer.getInput() - 1] != 'O')
@@ -32,24 +30,33 @@ public class ArrayTicTacToe
             grid[myPlayer.getInput() - 1] = (char) myPlayer.getLogo();
             return true;
         }
-
         System.out.println("The cell is already fill.");
         return false;
     }
 
-    public boolean checkVerticalArrayPlayer1()
+
+    public void displayAndInitArrayTicTacToe()
+    {
+        System.out.println("\n\n");
+        initArray();
+        displayArray();
+    }
+
+
+
+    private boolean checkVerticalArrayPlayer1()
     {
         if ((grid[0] == 'X' && grid[3] == 'X' && grid[6] == 'X') || (grid[1] == 'X' && grid[4] == 'X' && grid[7] == 'X') || (grid[2] == 'X' && grid[5] == 'X' && grid[8] == 'X'))
             return true;
         return false;
     }
-    public boolean checkHorizontalArrayPlayer1()
+    private boolean checkHorizontalArrayPlayer1()
     {
         if ((grid[0] == 'X' && grid[1] == 'X' && grid[2] == 'X') || (grid[3] == 'X' && grid[4] == 'X' && grid[5] == 'X') || (grid[6] == 'X' && grid[7] == 'X' && grid[8] == 'X'))
             return true;
         return false;
     }
-    public boolean checkDiagonalArrayPlayer1()
+    private boolean checkDiagonalArrayPlayer1()
     {
         if ((grid[0] == 'X' && grid[4] == 'X' && grid[8] == 'X') || (grid[2] == 'X' && grid[4] == 'X' && grid[6] == 'X'))
             return true;
@@ -62,25 +69,24 @@ public class ArrayTicTacToe
             System.out.println("\nThe player 1 " + game.player1.getName() + " wins!");
             return true;
         }
-
         return false;
     }
 
 
 
-    public boolean checkVerticalArrayPlayer2()
+    private boolean checkVerticalArrayPlayer2()
     {
         if ((grid[0] == 'O' && grid[3] == 'O' && grid[6] == 'O') || (grid[1] == 'O' && grid[4] == 'O' && grid[7] == 'O') || (grid[2] == 'O' && grid[5] == 'O' && grid[8] == 'O'))
             return true;
         return false;
     }
-    public boolean checkHorizontalArrayPlayer2()
+    private boolean checkHorizontalArrayPlayer2()
     {
         if ((grid[0] == 'O' && grid[1] == 'O' && grid[2] == 'O') || (grid[3] == 'O' && grid[4] == 'O' && grid[5] == 'O') || (grid[6] == 'O' && grid[7] == 'O' && grid[8] == 'O'))
             return true;
         return false;
     }
-    public boolean checkDiagonalArrayPlayer2()
+    private boolean checkDiagonalArrayPlayer2()
     {
         if ((grid[0] == 'O' && grid[4] == 'O' && grid[8] == 'O') || (grid[2] == 'O' && grid[4] == 'O' && grid[6] == 'O'))
             return true;
@@ -94,12 +100,5 @@ public class ArrayTicTacToe
             return true;
         }
         return false;
-    }
-
-    public void displayAndInitArrayTicTacToe()
-    {
-        System.out.println("\n\n");
-        initArray();
-        displayArray();
     }
 }

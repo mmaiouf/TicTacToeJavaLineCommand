@@ -6,7 +6,6 @@ public class Player
 {
     private final String    name;
     private final char      logo;
-
     private int input;
 
     public Player(String myName, char myLogo)
@@ -27,7 +26,6 @@ public class Player
     {
         return this.input;
     }
-
     public void setInput(int myInput)
     {
         this.input = myInput;
