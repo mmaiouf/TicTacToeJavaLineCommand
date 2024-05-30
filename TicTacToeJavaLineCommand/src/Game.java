@@ -28,11 +28,16 @@ public class Game
         while (gameIsOver == 0)
         {
             if (startPlayerToPlay == 1)
+            {
                 if (gameLogic.gameLogicP1(this) == 1)
                     gameIsOver = 1;
+            }
             else
+            {
                 if (gameLogic.gameLogicP2(this) == 1)
                     gameIsOver = 1;
+            }
+
         }
     }
     public void initNamePlayers()
