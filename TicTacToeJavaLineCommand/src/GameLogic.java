@@ -77,9 +77,9 @@ public class GameLogic
         }
         while (!game.arrayTicTacToe.updateArray(game.player1))
         {
+            inputP1 = 10;
             while ((inputP1 <= 0) || (inputP1 > 9))
             {
-                inputP1 = 10;
                 try
                 {
                     System.out.print("Please the player 1 " + game.player1.getName() + ", type your input between 1 and 9 where you want to put your " + game.player1.getLogo() + " :  ");
